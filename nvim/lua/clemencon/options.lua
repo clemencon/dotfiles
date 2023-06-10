@@ -1,4 +1,5 @@
 # Check the options using :help <option> eg :help breakindent
+
 vim.opt.backupdir:remove('.') -- keep backups out of the current directory
 vim.opt.breakindent = true -- maintain indent when wrapping indented lines
 vim.opt.clipboard = 'unnamedplus' -- Use Linux system clipboard
