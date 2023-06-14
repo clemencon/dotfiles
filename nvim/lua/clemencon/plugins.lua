@@ -249,26 +249,30 @@ use {
 use {
     "neovim/nvim-lspconfig",
     requires = {
-        -- LSP Support
         {"williamboman/mason.nvim"},
         {"williamboman/mason-lspconfig.nvim"},
-
-        -- Autocompletion
-        -- {"hrsh7th/nvim-cmp"},
-        -- {"hrsh7th/cmp-buffer"},
-        -- {"hrsh7th/cmp-path"},
-        -- {"saadparwaiz1/cmp_luasnip"},
-        -- {"hrsh7th/cmp-nvim-lsp"},
-        -- {"hrsh7th/cmp-nvim-lua"},
-
-        -- Snippets
-        -- {"L3MON4D3/LuaSnip"},
-        -- {"rafamadriz/friendly-snippets"},
     },
     config = function()
       require('clemencon.plugins.lspconfig')
     end
 }
+
+-- Autocompletion.
+use({
+  'hrsh7th/nvim-cmp',
+  requires = {
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-nvim-lsp-signature-help',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    'L3MON4D3/LuaSnip',
+    'saadparwaiz1/cmp_luasnip',
+    'onsails/lspkind-nvim',
+  },
+  config = function()
+    require('clemencon/plugins/cmp')
+  end,
+})
 
 -- Automatically set up your configuration after cloning packer.nvim
 -- Put this at the end after all plugins
