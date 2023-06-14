@@ -28,6 +28,32 @@ lspconfig.volar.setup{
 -- Tailwind CSS
 lspconfig.tailwindcss.setup{}
 
+-- JSON
+--Enable (broadcasting) snippet capability for completion
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+lspconfig.jsonls.setup {
+  capabilities = capabilities,
+  settings = {
+    json = { schemas = require('schemastore').json.schemas() }
+  },
+}
+
+-- YAML
+lspconfig.yamlls.setup {
+  settings = {
+    yaml = {
+      schemaStore = {
+        -- You must disable built-in schemaStore support if you want to use
+        -- this plugin and its advanced options like `ignore`.
+        enable = false,
+      },
+      schemas = require('schemastore').yaml.schemas(),
+    },
+  },
+}
+
 -- Global mappings
 vim.keymap.set('n', '<Leader>d', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)

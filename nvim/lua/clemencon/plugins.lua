@@ -249,8 +249,9 @@ use {
 use {
     "neovim/nvim-lspconfig",
     requires = {
-        {"williamboman/mason.nvim"},
-        {"williamboman/mason-lspconfig.nvim"},
+        'williamboman/mason.nvim',
+        'williamboman/mason-lspconfig.nvim',
+        'b0o/schemastore.nvim',
     },
     config = function()
       require('clemencon.plugins.lspconfig')
