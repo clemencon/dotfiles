@@ -26,14 +26,14 @@ local use = require('packer').use
 -- Packer can manage itself.
 use('wbthomason/packer.nvim')
 
--- Automatically set the working directory to the project root.
+-- Automatically set the working directory to the project root when opening a project.
 use({
   'airblade/vim-rooter',
   setup = function()
-    vim.g.rooter_manual_only = 1
+    vim.g.rooter_manual_only = 1 -- Start Rooter in manual mode.
   end,
   config = function()
-    vim.cmd('Rooter')
+    vim.cmd('Rooter') -- Start Rooter when the plugin is loaded.
   end,
 })
 
@@ -43,19 +43,19 @@ use({
   config = function()
     vim.cmd('colorscheme rose-pine')
 
-    -- Hide the characters in FloatBorder
+    -- Hide the characters in FloatBorder.
     vim.api.nvim_set_hl(0, 'FloatBorder', {
       fg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
       bg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
     })
 
-    -- Make the StatusLineNonText background the same as StatusLine
+    -- Make the StatusLineNonText background the same as StatusLine.
     vim.api.nvim_set_hl(0, 'StatusLineNonText', {
       fg = vim.api.nvim_get_hl_by_name('NonText', true).foreground,
       bg = vim.api.nvim_get_hl_by_name('StatusLine', true).background,
     })
 
-    -- Hide the characters in CursorLineBg
+    -- Hide the characters in CursorLineBg.
     vim.api.nvim_set_hl(0, 'CursorLineBg', {
       fg = vim.api.nvim_get_hl_by_name('CursorLine', true).background,
       bg = vim.api.nvim_get_hl_by_name('CursorLine', true).background,
@@ -85,7 +85,7 @@ use('tpope/vim-sleuth')
 use('sheerun/vim-polyglot')
 
 -- Navigate seemlessly between Vim windows and Tmux panes.
-use('christoomey/vim-tmux-navigator')
+-- use('christoomey/vim-tmux-navigator')
 
 -- Jump to the last location when opening a file.
 use('farmergreg/vim-lastplace')
@@ -127,14 +127,14 @@ use({
 })
 
 -- Split arrays and methods onto multiple lines, or join them back up.
-use({
-  'AndrewRadev/splitjoin.vim',
-  config = function()
-    vim.g.splitjoin_html_attributes_bracket_on_new_line = 1
-    vim.g.splitjoin_trailing_comma = 1
-    vim.g.splitjoin_php_method_chain_full = 1
-  end,
-})
+-- use({
+  -- 'AndrewRadev/splitjoin.vim',
+  -- config = function()
+    -- vim.g.splitjoin_html_attributes_bracket_on_new_line = 1
+    -- vim.g.splitjoin_trailing_comma = 1
+    -- vim.g.splitjoin_php_method_chain_full = 1
+  -- end,
+-- })
 
 -- Automatically fix indentation when pasting code.
 use({
